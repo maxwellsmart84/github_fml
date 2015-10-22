@@ -10,19 +10,25 @@ var repoMap = _.map(ghRepoData, function(el, idx, arr){
 // var repoTpl = _.template(
 //   "<ul> <% _.each (repoMap, function(el){ %><li><h1><a href="#"><%- el.name %></a></h1><p><%- el.description %></p><h6><%- el.UpdateAt %></h6>}</li>)</ul>");
 
-var repoMapName = "";
-var repoMapDesc = "";
-var repoMapDesc = "";
+//Thanks to Sally K for getting me out of this rut!
+var repoMapHTML = "";
 _.each(repoMap, function(el, idx, arr){
-  repoMapName += repoMap.el.name;
-  repoMapDesc += repoMap.el.description;
-  repoMapUpdt += repoMap.el.updated_at;
+  repoMapHTML += "<div class = repo-map>" +
+  "<h3>" + "<a href=#>" + el.name + "</a>" + "</h3>" +
+  "<p>" + el.description + "</p>" +
+  "<h6>" + el.UpdateAt + "</h6>"
+  + "</div>";
 });
+
+var eventMap = _.map(ghEventData, function(el, idx, arr){
+  return {userName: el.actor.login, repoName: el.repo.name, fork: el.payload.ref, message: el.payload.commits[idx].message, commID: el.payload.commits[idx].sha};
+});
+
 
 
 $
 $( document ).ready(function(){
-  $(".repo").append;
+  $(".repo").append(repoMapHTML);
 
 
 
