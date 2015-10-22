@@ -21,8 +21,13 @@ _.each(repoMap, function(el, idx, arr){
 });
 
 var eventMap = _.map(ghEventData, function(el, idx, arr){
-  return {userName: el.actor.login, repoName: el.repo.name, fork: el.payload.ref, message: el.payload.commits[idx].message, commID: el.payload.commits[idx].sha};
+  return {userName: el.actor.login, repoName: el.repo.name, fork: el.payload.ref, commitsArr: el.payload.commits};
 });
+
+
+
+var commitsPluck2 = ""
+commitsPluck2 += _.pluck(eventMap.commitsArr, "sha");
 
 
 
