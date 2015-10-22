@@ -24,10 +24,15 @@ var eventMap = _.map(ghEventData, function(el, idx, arr){
   return {userName: el.actor.login, repoName: el.repo.name, fork: el.payload.ref, commitsArr: el.payload.commits};
 });
 
+var commitData = _.pluck(eventMap, "commitsArr");
 
+var commitFlatten= _.flatten (commitData);
 
-var commitsPluck2 = ""
-commitsPluck2 += _.pluck(eventMap.commitsArr, "sha");
+ 
+
+var commitClean = _.each(commitFlatten, function(el, idx, arr){
+  console.log()
+})
 
 
 
