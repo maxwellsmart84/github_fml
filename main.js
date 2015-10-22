@@ -10,10 +10,19 @@ var repoMap = _.map(ghRepoData, function(el, idx, arr){
 // var repoTpl = _.template(
 //   "<ul> <% _.each (repoMap, function(el){ %><li><h1><a href="#"><%- el.name %></a></h1><p><%- el.description %></p><h6><%- el.UpdateAt %></h6>}</li>)</ul>");
 
+var repoMapName = "";
+var repoMapDesc = "";
+var repoMapDesc = "";
+_.each(repoMap, function(el, idx, arr){
+  repoMapName += repoMap.el.name;
+  repoMapDesc += repoMap.el.description;
+  repoMapUpdt += repoMap.el.updated_at;
+});
+
 
 $
 $( document ).ready(function(){
-  $(".repo").append(repoMap);
+  $(".repo").append;
 
 
 
